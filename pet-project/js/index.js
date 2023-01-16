@@ -8,38 +8,61 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Button = function (_React$Component) {
-  _inherits(Button, _React$Component);
+function Button(props) {
+  return React.createElement(
+    'button',
+    { style: { color: props.color } },
+    props.text
+  );
+}
 
-  function Button(props) {
-    _classCallCheck(this, Button);
+function Input(props) {
+  return React.createElement('input', { type: 'text', onChange: function onChange() {
+      return props.onChange();
+    } });
+}
 
-    var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+var Main = function (_React$Component) {
+  _inherits(Main, _React$Component);
+
+  function Main(props) {
+    _classCallCheck(this, Main);
+
+    var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
 
     _this.state = {
-      color: '#f00',
-      text: 'Click me!'
+      text: 'Click me!',
+      color: '#000'
     };
     return _this;
   }
 
-  _createClass(Button, [{
+  _createClass(Main, [{
+    key: 'handleChange',
+    value: function handleChange() {
+      this.setState({ color: '#f00' });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
       return React.createElement(
-        'button',
-        { style: { color: this.state.color }, onClick: function onClick() {
-            return _this2.setState({ text: 'Hello World!' });
-          } },
-        this.state.text
+        'div',
+        null,
+        React.createElement(Button, {
+          text: this.state.text,
+          color: this.state.color
+        }),
+        React.createElement(Input, { onChange: function onChange() {
+            return _this2.handleChange();
+          } })
       );
     }
   }]);
 
-  return Button;
+  return Main;
 }(React.Component);
 
 var root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(React.createElement(Button, null));
+root.render(React.createElement(Main, null));
