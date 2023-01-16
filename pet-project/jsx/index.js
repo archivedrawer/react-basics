@@ -19,7 +19,7 @@ class Main extends React.Component {
     super(props);
     this.state = {
       text: 'Click me!',
-      color: '#000'
+      color: '#000000'
     };
   }
 

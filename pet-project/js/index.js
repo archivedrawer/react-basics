@@ -30,7 +30,7 @@ var Main = function (_React$Component) {
 
     _this.state = {
       text: 'Click me!',
-      color: '#000'
+      color: '#000000'
     };
     return _this;
   }
