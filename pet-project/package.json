@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx babel --watch jsx --out-dir js --presets react-app/prod"
+    "dev": "npx babel --watch ./jsx --out-dir ./js --presets react-app/prod"
   },
   "keywords": [],
   "author": "",
