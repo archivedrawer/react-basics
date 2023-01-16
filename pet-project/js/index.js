@@ -8,42 +8,38 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var e = React.createElement;
+var Button = function (_React$Component) {
+  _inherits(Button, _React$Component);
 
-var LikeButton = function (_React$Component) {
-  _inherits(LikeButton, _React$Component);
+  function Button(props) {
+    _classCallCheck(this, Button);
 
-  function LikeButton(props) {
-    _classCallCheck(this, LikeButton);
+    var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
 
-    var _this = _possibleConstructorReturn(this, (LikeButton.__proto__ || Object.getPrototypeOf(LikeButton)).call(this, props));
-
-    _this.state = { liked: false };
+    _this.state = {
+      color: '#f00',
+      text: 'Click me!'
+    };
     return _this;
   }
 
-  _createClass(LikeButton, [{
+  _createClass(Button, [{
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      if (this.state.liked) {
-        return 'You liked this.';
-      }
-
       return React.createElement(
         'button',
-        { onClick: function onClick() {
-            return _this2.setState({ liked: true });
+        { style: { color: this.state.color }, onClick: function onClick() {
+            return _this2.setState({ text: 'Hello World!' });
           } },
-        'Like'
+        this.state.text
       );
     }
   }]);
 
-  return LikeButton;
+  return Button;
 }(React.Component);
 
-var domContainer = document.querySelector('#like_button_container');
-var root = ReactDOM.createRoot(domContainer);
-root.render(e(LikeButton));
+var root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(React.createElement(Button, null));
