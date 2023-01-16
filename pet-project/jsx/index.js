@@ -10,7 +10,7 @@ function Button(props) {
 
 function Input(props) {
   return (
-    <input type='text' onChange={() => props.onChange()}/>
+    <input type='color' onChange={props.onChange}/>
   );
 }
 
@@ -23,8 +23,8 @@ class Main extends React.Component {
     };
   }
 
-  handleChange() {
-    this.setState({color: '#f00'});
+  handleChange(event) {
+    this.setState({color: event.target.value});
   }
 
   render() {
@@ -34,7 +34,7 @@ class Main extends React.Component {
           text={this.state.text}
           color={this.state.color}
         />
-        <Input onChange={() => this.handleChange()}/>
+        <Input onChange={(event) => this.handleChange(event)}/>
       </div>
     );
   }

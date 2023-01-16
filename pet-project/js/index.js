@@ -17,9 +17,7 @@ function Button(props) {
 }
 
 function Input(props) {
-  return React.createElement('input', { type: 'text', onChange: function onChange() {
-      return props.onChange();
-    } });
+  return React.createElement('input', { type: 'color', onChange: props.onChange });
 }
 
 var Main = function (_React$Component) {
@@ -39,8 +37,8 @@ var Main = function (_React$Component) {
 
   _createClass(Main, [{
     key: 'handleChange',
-    value: function handleChange() {
-      this.setState({ color: '#f00' });
+    value: function handleChange(event) {
+      this.setState({ color: event.target.value });
     }
   }, {
     key: 'render',
@@ -54,8 +52,8 @@ var Main = function (_React$Component) {
           text: this.state.text,
           color: this.state.color
         }),
-        React.createElement(Input, { onChange: function onChange() {
-            return _this2.handleChange();
+        React.createElement(Input, { onChange: function onChange(event) {
+            return _this2.handleChange(event);
           } })
       );
     }
