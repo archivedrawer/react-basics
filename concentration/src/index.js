@@ -5,10 +5,10 @@ import './index.css';
 function Card(props) {
   return (
     <div className='card'>
-        <img alt='' src='https://picsum.photos/id/250/100/200' />
-      {/* <div className='front'>
+      <div className='face front'>
+        <img alt='' src='https://picsum.photos/id/350/100/200' />
       </div>
-      <div className='back'></div> */}
+      <div className='face back'></div>
     </div>
   );
 }
