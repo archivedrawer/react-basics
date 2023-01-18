@@ -4,34 +4,36 @@ import './index.css';
 
 function Card(props) {
   return (
-    <div className='card'>
-      <div className='face front'>
-        <img alt='' src='https://picsum.photos/id/350/100/200' />
+    <div className={'card' + (props.flipped ? ' flipped' : '')} onClick={props.onClick}>
+      <div className="face front">
+        <img alt="" src="https://picsum.photos/id/350/100/200" />
       </div>
-      <div className='face back'></div>
+      <div className="face back"></div>
     </div>
   );
 }
 
 function Board(props) {
-  function renderCard() {
-    return (
-      <Card />
-    );
+  const [flipped, setFlipped] = useState(false);
+
+  function renderCard(i) {
+    return <Card flipped={flipped} onClick={() => handleClick(i)} />;
+  }
+
+  function handleClick(i) {
+
   }
 
   return (
-    <div className='board'>
-      {renderCard()}
-      {renderCard()}
+    <div className="board">
+      {renderCard(1)}
+      {renderCard(2)}
     </div>
   );
 }
 
 function Game(props) {
-  return (
-    <Board />
-  );
+  return <Board />;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
