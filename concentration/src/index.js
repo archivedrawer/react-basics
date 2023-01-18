@@ -5,8 +5,10 @@ import './index.css';
 function Card(props) {
   return (
     <div className='card'>
-      <img alt='' src='https://picsum.photos/id/450/100/200' />
-      <img alt='' src='https://picsum.photos/id/200/100/200' />
+        <img alt='' src='https://picsum.photos/id/250/100/200' />
+      {/* <div className='front'>
+      </div>
+      <div className='back'></div> */}
     </div>
   );
 }
@@ -19,7 +21,7 @@ function Board(props) {
   }
 
   return (
-    <div id='board'>
+    <div className='board'>
       {renderCard()}
       {renderCard()}
     </div>

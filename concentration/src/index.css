@@ -12,7 +12,7 @@ body {
   place-items: center;
 }
 
-#board {
+.board {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
@@ -21,17 +21,17 @@ body {
 .card {
   width: 100px;
   height: 200px;
-  overflow: hidden;
-  border: 2px solid #000;
-  border-radius: 20px;
-  transform-style: preserve-3d;
+  /* perspective: 500px; */
+  /* overflow: hidden; */
+  /* border: 2px solid #000; */
+  /* border-radius: 20px; */
+  /* transform-style: preserve-3d; */
   animation: Rotate infinite 3s ease-in-out;
-  position: relative;
+  /* position: relative; */
 }
 
 img {
   display: block;
-  position: absolute;
 }
 
 @keyframes Rotate {
@@ -42,6 +42,6 @@ img {
     transform: rotateY(180deg);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(0);
   }
 }
