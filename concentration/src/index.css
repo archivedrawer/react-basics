@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 body {
@@ -13,8 +15,9 @@ body {
 }
 
 .board {
+  --step: 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(var(--step), 1fr);
   gap: 1rem;
   perspective: 50rem;
 }
@@ -35,7 +38,6 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  border: 2px solid #000;
   border-radius: 20px;
   overflow: hidden;
   backface-visibility: hidden;
@@ -46,7 +48,9 @@ body {
 }
 
 .back {
-  background: #000;
+  background: #f00;
+  display: grid;
+  place-items: center;
 }
 
 img {
