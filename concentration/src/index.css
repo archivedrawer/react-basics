@@ -23,11 +23,12 @@ body {
   width: 100px;
   height: 200px;
   position: relative;
+  transition: transform 500ms ease-out;
   transform-style: preserve-3d;
 }
 
 .flipped {
-  transform: rotateY(180deg) 2s;
+  transform: rotateY(180deg);
 }
 
 .face {
@@ -40,9 +41,12 @@ body {
   backface-visibility: hidden;
 }
 
-.back {
-  background: url('https://picsum.photos/id/450/100/200');
+.front {
   transform: rotateY(180deg);
+}
+
+.back {
+  background: #000;
 }
 
 img {

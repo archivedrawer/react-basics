@@ -13,23 +13,32 @@ function Card(props) {
   );
 }
 
-function Board(props) {
-  const [flipped, setFlipped] = useState(false);
-
-  function renderCard(i) {
-    return <Card flipped={flipped} onClick={() => handleClick(i)} />;
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cards: Array(2).fill(false),
+    };
   }
 
-  function handleClick(i) {
-
+  renderCard(i) {
+    return <Card flipped={this.state.cards[i]} onClick={() => this.handleClick(i)} />;
   }
 
-  return (
-    <div className="board">
-      {renderCard(1)}
-      {renderCard(2)}
-    </div>
-  );
+  handleClick(i) {
+    const cards = this.state.cards.slice();
+    cards[i] = !cards[i];
+    this.setState({ cards: cards });
+  }
+
+  render() {
+    return (
+      <div className="board">
+        {this.renderCard(1)}
+        {this.renderCard(2)}
+      </div>
+    );
+  }
 }
 
 function Game(props) {
